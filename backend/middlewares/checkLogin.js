@@ -1,3 +1,4 @@
+require('dotenv').config();
 const SECRETKEY = process.env.SECRETKEY;
 
 const checkLogin = (req, res, next) => {
@@ -12,7 +13,7 @@ const checkLogin = (req, res, next) => {
     req.id = decoded.id;
     next()
   } catch (err) {
-    return res.status(401).json({ message: "Invalid token" });
+    return res.status(401).json({ message: "Invalid or expired token" });
   }
 };
 

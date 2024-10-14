@@ -10,6 +10,7 @@ const connectDB = require('./config/connectDB');
 
 connectDB();
 
+app.use(express.json());
 app.use(cookieParser());
 
 app.use("/contents", mainRoute);
